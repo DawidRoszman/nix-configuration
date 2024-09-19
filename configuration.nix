@@ -84,7 +84,7 @@
   users.users.dawidr = {
     isNormalUser = true;
     description = "Dawid Roszman";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -112,10 +112,19 @@
   zsh
   eza
   brave
-  docker
   wget
   oh-my-zsh
   lazygit
+  wl-clipboard
+  tmux
+  google-chrome
+  spotify
+  obsidian
+  arduino-ide
+  python3
+  gnumake
+  unzip
+  linuxHeaders
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -148,6 +157,13 @@
   environment.variables = {
     EDITOR = "nvim";
   };
+  
+  # ZSH
   programs.zsh.enable = true;
   users.defaultUserShell=pkgs.zsh;
+
+  # Docker
+  virtualisation.docker.enable = true;
+  # VirtualBox
+  virtualisation.virtualbox.host.enable = true;
 }
